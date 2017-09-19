@@ -11,6 +11,29 @@ repositories {
     mavenCentral()
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14' 
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+    test {
+        resources {
+            srcDir 'src/test/resources'
+        }
+    }
+}
+
+test {
+    useTestNG {
+        useDefaultListeners = true    
+    }
+}
+
 dependencies {
 
     compile 'org.seleniumhq.selenium:selenium-chrome-driver:3.4.0'
